@@ -1,5 +1,5 @@
 const express = require('express');
-const { v4 } = require('uuid');
+const { v4, validate } = require('uuid');
 
 const app = express();
 
@@ -24,16 +24,47 @@ const port = 3333;
  * Body Params: Conteúdo usado para criar/editar um recurso (JSON)
  */
 
+/**
+ * Middleware
+ *
+ * Interceptador de requisições => Pode interromper totalmente as requisições
+ */
+
 const projects = [];
+
+function logRequests(request, response, next) {
+  const { method, url } = request;
+
+  const logLabel = `[${method.toUpperCase()}] ${url}`;
+
+  console.time(logLabel);
+
+  next();
+
+  console.timeEnd(logLabel);
+}
+
+function validateProjectId(request, response, next) {
+  const { id } = request.params;
+
+  if (!validate(id)) {
+    return response.status(400).json({ error: 'Invalid project ID.' });
+  }
+
+  return next();
+}
+
+app.use(logRequests);
+app.use('/projects/:id', validateProjectId);
 
 app.get('/projects', (request, response) => {
   const { title } = request.query;
 
-  const projects = title
+  const filteredProjects = title
     ? projects.filter((proj) => proj.title.includes(title))
     : projects;
 
-  return response.json(projects);
+  return response.json(filteredProjects);
 });
 
 app.post('/projects', (request, response) => {
