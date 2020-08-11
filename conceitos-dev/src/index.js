@@ -1,4 +1,5 @@
 const express = require('express');
+const { v4 } = require('uuid');
 
 const app = express();
 
@@ -23,32 +24,59 @@ const port = 3333;
  * Body Params: Conteúdo usado para criar/editar um recurso (JSON)
  */
 
-app.get('/products', (request, response) => {
-  const { title, owner } = request.query;
+const projects = [];
 
-  console.log({ query: { title, owner } });
+app.get('/projects', (request, response) => {
+  const { title } = request.query;
 
-  return response.json(['Produto 1', 'Produto 2']);
+  const projects = title
+    ? projects.filter((proj) => proj.title.includes(title))
+    : projects;
+
+  return response.json(projects);
 });
 
-app.post('/products', (request, response) => {
-  const body = request.body;
+app.post('/projects', (request, response) => {
+  const { title, owner } = request.body;
 
-  console.log(body);
+  const project = { id: v4(), title, owner };
 
-  return response.json(['Produto 1', 'Produto 2', 'Produto 3']);
+  projects.push(project);
+
+  return response.json(project);
 });
 
-app.put('/products/:id', (request, response) => {
+app.put('/projects/:id', (request, response) => {
+  const { id } = request.params;
+  const { title, owner } = request.body;
+
+  const projectIndex = projects.findIndex((proj) => proj.id === id);
+
+  if (projectIndex === -1) {
+    return response.status(400).json({ error: 'Project not found' });
+  }
+
+  projects[projectIndex] = {
+    ...projects[projectIndex],
+    title,
+    owner,
+  };
+
+  return response.json(projects[projectIndex]);
+});
+
+app.delete('/projects/:id', (request, response) => {
   const { id } = request.params;
 
-  console.log(id);
+  const projectIndex = projects.findIndex((proj) => proj.id === id);
 
-  return response.json(['Produto 4', 'Produto 2', 'Produto 3']);
-});
+  if (projectIndex === -1) {
+    return response.status(400).json({ error: 'Project not found' });
+  }
 
-app.delete('/products/:id', (request, response) => {
-  return response.json(['Produto 2', 'Produto 3']);
+  projects.splice(projectIndex, 1);
+
+  return response.status(204).send();
 });
 
 app.listen(port, () => {
