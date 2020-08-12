@@ -1,3 +1,3 @@
-const soma = (a, b) => a + b;
+import soma from './soma';
 
 console.log(soma(43, 2));
