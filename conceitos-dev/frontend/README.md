@@ -71,3 +71,34 @@ function Header({ children }) {
   // conteúdo do componente
 }
 ```
+
+## Estado
+
+Permite a atualização de elementos duurante a atualização dos valores das variáveis.
+
+## Imutabilidade
+
+No React não é permitida a iteração direta com as variáveis do estado, elas são imutáveis. Para atualizar os valores do estado é necessária a recriação de todo o estado.
+
+Exemplo:
+
+```jsx
+function Component() {
+  const [counter, setCounter] = useState(0);
+
+  function handleAdd(){
+
+    // errado
+    //=> counter++;
+
+    // correto
+    setCounter(counter + 1);
+  }
+
+  return (
+    /**
+     * conteúdo do componente
+     */
+  );
+}
+```
