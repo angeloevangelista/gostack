@@ -51,3 +51,23 @@ function App() {
   );
 }
 ```
+
+## Propriedades
+
+Informações passadas para um componente, para que este as utilize em seu conteúdo, são semelhantes a parâmetros que são usados dentro do corpo das funções convencionais.
+
+## Propriedades: children
+
+Todo o conteúdo "entre tags" passado para o componente.
+
+```jsx
+function App() {
+  return <Header>children</Header>;
+}
+```
+
+```jsx
+function Header({ children }) {
+  // conteúdo do componente
+}
+```
