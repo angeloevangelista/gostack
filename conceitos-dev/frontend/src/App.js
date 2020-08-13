@@ -19,8 +19,22 @@ function App() {
       });
   }, []);
 
-  function handleAddProject() {
-    setProjects([...projects, `Projeto numero ${projects.length}`]);
+  async function handleAddProject() {
+    // setProjects([...projects, `Projeto numero ${projects.length}`]);
+
+    try {
+      const response = await api.post('projects', {
+        title: `Projeto número ${Date.now()}`,
+        owner: 'Angelo',
+      });
+
+      const project = response.data;
+
+      setProjects([...projects, project]);
+    } catch (err) {
+      alert('Falha ao adicionar projeto');
+      console.warn(err);
+    }
   }
 
   return (
