@@ -1,0 +1,30 @@
+{
+	"info": {
+		"_postman_id": "7e0617e1-b818-45de-b3d3-26518c3315a3",
+		"name": "Likes",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Create",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "localhost:3333/repositories/e28d8068-8704-457d-8ba6-0445440fb7ab/like",
+					"host": [
+						"localhost"
+					],
+					"port": "3333",
+					"path": [
+						"repositories",
+						"e28d8068-8704-457d-8ba6-0445440fb7ab",
+						"like"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}

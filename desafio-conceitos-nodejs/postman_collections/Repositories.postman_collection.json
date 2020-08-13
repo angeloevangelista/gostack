@@ -1,0 +1,112 @@
+{
+	"info": {
+		"_postman_id": "f1fd41e9-797b-42c1-938f-9f2242697d90",
+		"name": "Repositories",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "List",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3333/repositories/",
+					"host": [
+						"localhost"
+					],
+					"port": "3333",
+					"path": [
+						"repositories",
+						""
+					],
+					"query": [
+						{
+							"key": "title",
+							"value": "React",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3333/repositories/b42bdde3-b63e-4e81-9278-6e33c8952e24",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3333",
+					"path": [
+						"repositories",
+						"b42bdde3-b63e-4e81-9278-6e33c8952e24"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"techs\": [\n        \"Node\",\n        \"Express\",\n        \"TypeScript\"\n    ],\n    \"title\": \"Umbriel\",\n    \"url\": \"https://github.com/Rocketseat/umbriel\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3333/repositories/",
+					"host": [
+						"localhost"
+					],
+					"port": "3333",
+					"path": [
+						"repositories",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"title\": \"Novo titulo\",\n    \"url\": \"http://mynew.address\",\n    \"techs\": [\n        \"newTech\"\n    ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3333/repositories/c0ab34e1-0ba7-4d1c-bf38-141999413423",
+					"host": [
+						"localhost"
+					],
+					"port": "3333",
+					"path": [
+						"repositories",
+						"c0ab34e1-0ba7-4d1c-bf38-141999413423"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
