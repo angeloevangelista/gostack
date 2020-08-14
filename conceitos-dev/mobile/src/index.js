@@ -1,29 +1,54 @@
-import React from 'react';
-import { View, Text, StyleSheet, StatusBar } from 'react-native';
+import React, { useEffect, useState } from 'react';
+import {
+  SafeAreaView,
+  Text,
+  StyleSheet,
+  StatusBar,
+  Alert,
+  FlatList,
+} from 'react-native';
+
+import api from './services/api';
 
 const styles = StyleSheet.create({
   container: {
     backgroundColor: '#7159c1',
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
+    // justifyContent: 'center',
+    // alignItems: 'center',
   },
 
-  text: {
-    fontSize: 32,
+  project: {
+    fontSize: 24,
     color: '#fff',
-    fontWeight: 'bold',
   },
 });
 
 const App = () => {
+  const [projects, setProjects] = useState([]);
+
+  useEffect(() => {
+    api
+      .get('projects')
+      .then((response) => {
+        setProjects(response.data);
+      })
+      .catch(() => Alert.alert('Falha ao carregar projetos'));
+  }, []);
+
   return (
     <>
       <StatusBar barStyle="light-content" backgroundColor="#7159c1" />
 
-      <View style={styles.container}>
-        <Text style={styles.text}>Hello, Starter</Text>
-      </View>
+      <SafeAreaView style={styles.container}>
+        <FlatList
+          data={projects}
+          keyExtractor={(project) => project.id}
+          renderItem={({ item: project }) => (
+            <Text style={styles.project}>{project.title}</Text>
+          )}
+        />
+      </SafeAreaView>
     </>
   );
 };
