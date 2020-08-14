@@ -2,27 +2,15 @@ import React, { useEffect, useState } from 'react';
 import {
   SafeAreaView,
   Text,
-  StyleSheet,
   StatusBar,
   Alert,
   FlatList,
+  TouchableOpacity,
 } from 'react-native';
 
 import api from './services/api';
 
-const styles = StyleSheet.create({
-  container: {
-    backgroundColor: '#7159c1',
-    flex: 1,
-    // justifyContent: 'center',
-    // alignItems: 'center',
-  },
-
-  project: {
-    fontSize: 24,
-    color: '#fff',
-  },
-});
+import styles from './styles';
 
 const App = () => {
   const [projects, setProjects] = useState([]);
@@ -36,6 +24,15 @@ const App = () => {
       .catch(() => Alert.alert('Falha ao carregar projetos'));
   }, []);
 
+  async function handleAddProject() {
+    const response = await api.post('projects', {
+      title: `Projero número ${Date.now()}`,
+      owner: 'Angelo Evangelista',
+    });
+
+    setProjects([...projects, response.data]);
+  }
+
   return (
     <>
       <StatusBar barStyle="light-content" backgroundColor="#7159c1" />
@@ -48,6 +45,13 @@ const App = () => {
             <Text style={styles.project}>{project.title}</Text>
           )}
         />
+
+        <TouchableOpacity
+          onPress={handleAddProject}
+          activeOpacity={0.65}
+          style={styles.button}>
+          <Text style={styles.buttonText}>Adicionar projeto</Text>
+        </TouchableOpacity>
       </SafeAreaView>
     </>
   );
