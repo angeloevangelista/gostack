@@ -4,7 +4,7 @@ import CreateUserService from '../services/CreateUserService';
 
 const usersRouter = Router();
 
-usersRouter.post('/users', async (request, response) => {
+usersRouter.post('/', async (request, response) => {
   try {
     const { name, email, password } = request.body;
 
