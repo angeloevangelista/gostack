@@ -1,15 +1,34 @@
+import { getCustomRepository } from 'typeorm';
+
 import TransactionsRepository from '../repositories/TransactionsRepository';
+
 import Transaction from '../models/Transaction';
 
+interface Request {
+  title: string;
+  value: number;
+  type: 'income' | 'outcome';
+}
+
 class CreateTransactionService {
-  private transactionsRepository: TransactionsRepository;
+  public async execute({ title, type, value }: Request): Promise<Transaction> {
+    const transactionsRepository = getCustomRepository(TransactionsRepository);
 
-  constructor(transactionsRepository: TransactionsRepository) {
-    this.transactionsRepository = transactionsRepository;
-  }
+    const balance = await transactionsRepository.getBalance();
 
-  public execute(): Transaction {
-    // TODO
+    if (type === 'outcome' && balance.balance.total - value < 0) {
+      throw new Error('The balance cannot be minus than zero.');
+    }
+
+    const transaction = transactionsRepository.create({
+      title,
+      type,
+      value,
+    });
+
+    await transactionsRepository.save(transaction);
+
+    return transaction;
   }
 }
 
