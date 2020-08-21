@@ -89,6 +89,12 @@ class ImportTransactionsService {
 
     await transactionsRepository.save(transactions);
 
+    const csvExists = await fs.promises.stat(cvsFilePath);
+
+    if (csvExists) {
+      await fs.promises.unlink(cvsFilePath);
+    }
+
     return transactions;
   }
 }
