@@ -1,0 +1,65 @@
+{
+	"info": {
+		"_postman_id": "76d3af2e-7fc6-465a-a57c-9c16988c9487",
+		"name": "Notifications",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "List",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token_gobarber}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/notifications",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"notifications"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token_gobarber}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/notifications/5ea76649460df6312b1d8f6b",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"notifications",
+						"5ea76649460df6312b1d8f6b"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}

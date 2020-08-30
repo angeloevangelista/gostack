@@ -1,0 +1,12 @@
+<strong>Olá, {{ deliveryman.name }}</strong>
+<p>Você tem uma nova entrega, confira os detalhes abaixo:</p>
+<p>
+  <strong>Id da entrega: </strong> {{ delivery.id }} <br />
+  <strong>Produto: </strong> {{ delivery.product }} <br />
+
+  <strong>Endereço: </strong>
+  {{ recipient.street }},
+  {{ recipient.number }},
+  {{ recipient.city }},
+  {{ recipient.uf }}
+</p>

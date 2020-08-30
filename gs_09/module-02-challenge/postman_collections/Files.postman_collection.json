@@ -1,0 +1,47 @@
+{
+	"info": {
+		"_postman_id": "0dc6b0f5-4b48-46c0-bc5b-31162c04e0bd",
+		"name": "Files",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Create",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token_fastfeet}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "file",
+							"type": "file",
+							"src": "/D:/www/gostack-modules/module-02-challenge/assets/profile.jpg"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{base_url}}/files",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"files"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}

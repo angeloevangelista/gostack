@@ -1,0 +1,45 @@
+{
+	"info": {
+		"_postman_id": "ffb6b72b-381c-4b9f-888e-722ad0ea35ca",
+		"name": "Available",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "List",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token_gobarber_user}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/providers/2/available?date=1588451522383",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"providers",
+						"2",
+						"available"
+					],
+					"query": [
+						{
+							"key": "date",
+							"value": "1588451522383"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}

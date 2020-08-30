@@ -1,0 +1,50 @@
+{
+	"info": {
+		"_postman_id": "c76f558e-083c-44de-bcfc-b60a74a545c1",
+		"name": "Files",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Create",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token_gobarber_user}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "file",
+							"type": "file",
+							"src": "/D:/www/gostack-modules/module-02/assets/profile.jpg"
+						}
+					],
+					"options": {
+						"formdata": {}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/files",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"files"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}

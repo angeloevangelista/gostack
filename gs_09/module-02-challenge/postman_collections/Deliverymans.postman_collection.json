@@ -1,0 +1,173 @@
+{
+	"info": {
+		"_postman_id": "c6388e91-2f3c-453b-b640-b6528ad1f023",
+		"name": "Deliverymans",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "List",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token_fastfeet}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/deliverymans?q=ge",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"deliverymans"
+					],
+					"query": [
+						{
+							"key": "q",
+							"value": "ge"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Find",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token_fastfeet}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/deliverymans/1/",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"deliverymans",
+						"1",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token_fastfeet}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\": \"deliveryman\",\n\t\"email\": \"deliveryman@fastfeet.com\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/deliverymans",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"deliverymans"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token_fastfeet}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/deliverymans/1",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"deliverymans",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token_fastfeet}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"deliveryman\",\r\n    \"email\": \"deliveryman1@fastfeet.com\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/deliverymans/1",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"deliverymans",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}

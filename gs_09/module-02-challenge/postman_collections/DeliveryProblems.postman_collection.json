@@ -1,0 +1,135 @@
+{
+	"info": {
+		"_postman_id": "83fcecd4-95df-43c7-a0af-e4e47ad5dd43",
+		"name": "DeliveryProblems",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "List",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token_fastfeet}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/delivery/problems/",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"delivery",
+						"problems",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Find",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token_fastfeet}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/delivery/1/problems",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"delivery",
+						"1",
+						"problems"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token_fastfeet}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/problem/3/cancel-delivery",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"problem",
+						"3",
+						"cancel-delivery"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token_fastfeet}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"description\": \"This is my very very long description\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/delivery/1/problems",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"delivery",
+						"1",
+						"problems"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}

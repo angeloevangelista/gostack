@@ -1,0 +1,135 @@
+{
+	"info": {
+		"_postman_id": "5b602ca8-90c1-4c06-85b9-979ef32b64d3",
+		"name": "Deliveries",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Create",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token_fastfeet}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"recipient_id\" : 1,\n\t\"deliveryman_id\" : 1,\n\t\"signature_id\" : null,\n\t\"product\" : \"Mouse\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/deliveries",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"deliveries"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "List",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token_fastfeet}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/deliveries?q=mouse",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"deliveries"
+					],
+					"query": [
+						{
+							"key": "q",
+							"value": "mouse"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Find",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token_fastfeet}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/deliveries/1",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"deliveries",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token_fastfeet}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/deliveries/1",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"deliveries",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}

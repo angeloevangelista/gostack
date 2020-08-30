@@ -1,0 +1,110 @@
+{
+	"info": {
+		"_postman_id": "fe537f39-62e3-49d1-9244-c55e986c6ab4",
+		"name": "Recipients",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Create",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token_fastfeet}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\": \"Angelo\",\n    \"street\": \"Henriqueta Lisboa\",\n    \"number\": 7377,\n    \"complement\": \"Casa\",\n    \"uf\": \"SP\",\n    \"city\": \"Praia Grande\",\n    \"zipcode\": \"11714480\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/recipients",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"recipients"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNTg3MDc5NjI1LCJleHAiOjE1ODc2ODQ0MjV9.z7BblY3WsGl4qPGGrOu60TOvgoJgPXrQKvTGTw-k9uo",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\": \"Angelo\",\n    \"street\": \"Henriqueta Lisboa\",\n    \"number\": 7377,\n    \"complement\": \"Casa\",\n    \"uf\": \"SP\",\n    \"city\": \"Praia Grande\",\n    \"zipcode\": \"11714480\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/recipients/1",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"recipients",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "List",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token_fastfeet}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/recipients",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"recipients"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
